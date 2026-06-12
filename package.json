@@ -8,7 +8,8 @@
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "lint": "expo lint",
-    "build:web": "expo export --platform web"
+    "build:web": "expo export --platform web",
+    "validate:deck": "node --import tsx scripts/validateDeck.ts"
   },
   "dependencies": {
     "@expo/metro-runtime": "~5.0.4",
@@ -26,9 +27,11 @@
     "react-native-web": "^0.20.0"
   },
   "devDependencies": {
+    "@types/node": "^24.10.1",
     "@types/react": "~19.0.10",
     "eslint": "^9.25.0",
     "eslint-config-expo": "~9.2.0",
+    "tsx": "^4.20.5",
     "typescript": "~5.8.3",
     "vitest": "^3.2.4"
   }

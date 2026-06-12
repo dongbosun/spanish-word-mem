@@ -483,6 +483,22 @@ MVP 包含示例词库数据，仅用于验证产品体验和开发流程。
 
 如果需要调整词库来源，应同步更新数据来源页面和本 README。
 
+导入或替换完整词库后，先运行：
+
+```bash
+npm run validate:deck
+```
+
+校验脚本会检查：
+
+- 每个词卡包含 `id`、`spanish`、`english`、`partOfSpeech`、`chapterId`、`sectionId` 和 `tags`
+- 词卡 `id` 唯一
+- 每个词卡引用的 `chapterId` 和 `sectionId` 存在
+- 每个小节引用的 `chapterId` 存在
+- 词卡的小节归属与章节归属一致
+
+当前仓库中的词库仍是 MVP 示例/生成数据，用于测试应用结构和导入流程，不是权威公开 3000 词表。
+
 ## PWA 说明
 
 应用应尽量支持手机网页体验：
