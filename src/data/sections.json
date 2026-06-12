@@ -40,5 +40,82 @@
     "title": "城市出行",
     "description": "城市地点、交通工具和旅行动作。",
     "order": 2
+  },
+  {
+    "id": "section-generated-verb-nonfinite",
+    "chapterId": "chapter-generated-verbs",
+    "title": "非限定动词形式",
+    "description": "Infinitive, gerund and participle sample cards.",
+    "order": 1
+  },
+  {
+    "id": "section-generated-verb-present",
+    "chapterId": "chapter-generated-verbs",
+    "title": "现在时样本",
+    "description": "Regular present-tense sample cards.",
+    "order": 2
+  },
+  {
+    "id": "section-generated-verb-preterite",
+    "chapterId": "chapter-generated-verbs",
+    "title": "简单过去时样本",
+    "description": "Regular preterite sample cards.",
+    "order": 3
+  },
+  {
+    "id": "section-generated-verb-imperfect",
+    "chapterId": "chapter-generated-verbs",
+    "title": "过去未完成时样本",
+    "description": "Regular imperfect sample cards.",
+    "order": 4
+  },
+  {
+    "id": "section-generated-verb-future",
+    "chapterId": "chapter-generated-verbs",
+    "title": "将来时样本",
+    "description": "Regular future-tense sample cards.",
+    "order": 5
+  },
+  {
+    "id": "section-generated-verb-conditional",
+    "chapterId": "chapter-generated-verbs",
+    "title": "条件式样本",
+    "description": "Regular conditional sample cards.",
+    "order": 6
+  },
+  {
+    "id": "section-generated-noun-singular",
+    "chapterId": "chapter-generated-nouns",
+    "title": "名词单数样本",
+    "description": "Generated singular noun cards.",
+    "order": 1
+  },
+  {
+    "id": "section-generated-noun-plural",
+    "chapterId": "chapter-generated-nouns",
+    "title": "名词复数样本",
+    "description": "Generated plural noun cards.",
+    "order": 2
+  },
+  {
+    "id": "section-generated-adjective-agreement",
+    "chapterId": "chapter-generated-adjectives",
+    "title": "形容词性数配合样本",
+    "description": "Generated adjective agreement cards.",
+    "order": 1
+  },
+  {
+    "id": "section-generated-function-words",
+    "chapterId": "chapter-generated-function",
+    "title": "功能词样本",
+    "description": "Generated function-word cards.",
+    "order": 1
+  },
+  {
+    "id": "section-generated-starter-phrases",
+    "chapterId": "chapter-generated-function",
+    "title": "入门短语样本",
+    "description": "Generated starter phrase cards.",
+    "order": 2
   }
 ]

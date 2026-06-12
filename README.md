@@ -6,7 +6,7 @@
 
 `spanish-vocab-list` 是一个列表优先的词汇学习工具。它的核心体验不是每天推荐少量新词，而是让用户自由浏览完整词库、按章节和小节查看大量单词，并按照自己的节奏标记掌握程度。
 
-目标词库规模约为 3000 个单词。MVP 阶段内置示例数据，但数据模型、列表 UI、统计逻辑和测试逻辑都应支持后续替换为完整词库。
+目标词库规模约为 3000 个单词。当前版本内置 3000 条样本/生成词卡，用于验证数据导入、列表 UI、统计逻辑、测试逻辑和云端同步。它不是权威公开词表。
 
 ## 这不是什么
 
@@ -107,6 +107,28 @@ npm run lint
 npm run build:web
 ```
 
+生成当前 3000 条样本/生成词卡：
+
+```bash
+npm run generate:sample-deck
+```
+
+从外部 JSON 导入词库：
+
+```bash
+npm run import:deck -- path/to/deck.json
+```
+
+导入文件必须是：
+
+```json
+{
+  "chapters": [],
+  "sections": [],
+  "words": []
+}
+```
+
 ## 推荐脚本
 
 `package.json` 应包含：
@@ -119,7 +141,9 @@ npm run build:web
     "test": "vitest run",
     "lint": "expo lint",
     "build:web": "expo export --platform web",
-    "validate:deck": "node --import tsx scripts/validateDeck.ts"
+    "validate:deck": "node --import tsx scripts/validateDeck.ts",
+    "generate:sample-deck": "node --import tsx scripts/buildGeneratedDeck.ts",
+    "import:deck": "node --import tsx scripts/importDeck.ts"
   }
 }
 ```
@@ -154,32 +178,15 @@ npm run build:web
 
 ## 数据文件
 
-示例数据放在：
+词库数据放在：
 
 - `src/data/chapters.json`
 - `src/data/sections.json`
 - `src/data/words.json`
+- `src/data/baseSampleWords.json`
+- `src/data/README.md`
 
-MVP 示例数据应包含：
-
-- 3 个章节
-- 6 个小节
-- 至少 50 个真实可测试的西英词卡
-
-建议章节：
-
-- 基础高频词
-- 人物与生活
-- 食物与出行
-
-建议小节：
-
-- 基础动词
-- 常用名词
-- 家庭与人物
-- 情绪与描述
-- 食物餐饮
-- 城市出行
+当前 `words.json` 包含 3000 条词卡。前 60 条保留原 MVP 示例词卡以兼容已有学习进度；其余词卡由 `scripts/buildGeneratedDeck.ts` 里的内部 seed 列表确定性生成。它们都应被视为 sample/generated data，不是权威公开词表。
 
 ## 数据模型
 
@@ -514,9 +521,11 @@ Context 提供：
 
 ## 数据来源与授权
 
-MVP 包含示例词库数据，仅用于验证产品体验和开发流程。
+当前版本包含 3000 条样本/生成词卡，仅用于验证产品体验、导入流程和大词库性能。
 
-后续替换为完整 3000 词词库时，必须补充真实来源和授权信息。不要声称示例数据是经过验证的官方 3000 词词库。
+不要声称这些样本/生成数据是经过验证的官方 3000 词词库，也不要为它们补写不存在的外部来源或许可证。
+
+后续替换为正式词库时，必须补充真实来源和授权信息。
 
 建议在 `app/sources.tsx` 中预留：
 
@@ -525,7 +534,7 @@ MVP 包含示例词库数据，仅用于验证产品体验和开发流程。
 - 授权或许可证
 - 数据更新时间
 
-## 替换为 3000 词词库
+## 替换为正式词库
 
 替换数据时保持 JSON 格式不变：
 
@@ -553,7 +562,7 @@ npm run validate:deck
 - 每个小节引用的 `chapterId` 存在
 - 词卡的小节归属与章节归属一致
 
-当前仓库中的词库仍是 MVP 示例/生成数据，用于测试应用结构和导入流程，不是权威公开 3000 词表。
+当前仓库中的词库是样本/生成数据，用于测试应用结构和导入流程，不是权威公开 3000 词表。
 
 ## PWA 说明
 

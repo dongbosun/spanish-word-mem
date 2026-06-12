@@ -16,5 +16,29 @@
     "title": "食物与出行",
     "description": "覆盖餐饮、城市、交通和旅行中常见的核心词汇。",
     "order": 3
+  },
+  {
+    "id": "chapter-generated-verbs",
+    "title": "生成样本：动词变化",
+    "description": "Regular-verb forms generated from seed verbs for import and scale testing.",
+    "order": 4
+  },
+  {
+    "id": "chapter-generated-nouns",
+    "title": "生成样本：名词",
+    "description": "Generated singular and plural noun cards for import and scale testing.",
+    "order": 5
+  },
+  {
+    "id": "chapter-generated-adjectives",
+    "title": "生成样本：形容词",
+    "description": "Generated adjective agreement cards for import and scale testing.",
+    "order": 6
+  },
+  {
+    "id": "chapter-generated-function",
+    "title": "生成样本：功能词与短语",
+    "description": "Generated function words and starter phrase cards for import and scale testing.",
+    "order": 7
   }
 ]

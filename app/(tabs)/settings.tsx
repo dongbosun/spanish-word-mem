@@ -138,7 +138,7 @@ export default function SettingsScreen() {
         <Text style={styles.text}>
           未登录时进度仅保存在本设备/浏览器；登录 Google 后，进度会保存到你的 Firebase 用户数据下。
         </Text>
-        <Text style={styles.text}>当前词库为 MVP 示例数据，完整词库上线前需要补充来源和授权信息。</Text>
+        <Text style={styles.text}>当前词库为 3000 条样本/生成数据，正式词库上线前需要补充来源和授权信息。</Text>
         <AppButton label="数据来源 / 授权说明" onPress={() => router.push("/sources")} variant="secondary" />
       </View>
 
