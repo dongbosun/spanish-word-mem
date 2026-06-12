@@ -3,6 +3,8 @@ node_modules/
 dist/
 web-build/
 coverage/
+.env
+.env*.local
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*

@@ -11,7 +11,18 @@ import { useProgress } from "@/state/ProgressContext";
 
 export default function SettingsScreen() {
   const router = useRouter();
-  const { exportProgress, importProgress, resetAllProgress } = useProgress();
+  const {
+    cloudSyncMessage,
+    cloudSyncStatus,
+    cloudUser,
+    exportProgress,
+    importProgress,
+    isCloudSyncReady,
+    resetAllProgress,
+    signInToCloud,
+    signOutOfCloud,
+    syncProgressNow
+  } = useProgress();
   const [importText, setImportText] = useState("");
   const [message, setMessage] = useState("");
 
@@ -47,8 +58,50 @@ export default function SettingsScreen() {
       <SectionTitle title="设置" subtitle="管理本地进度、数据来源和隐私说明。" />
 
       <View style={styles.card}>
+        <Text style={styles.cardTitle}>云端同步</Text>
+        {cloudUser ? (
+          <Text style={styles.text}>
+            已登录：{cloudUser.displayName ?? cloudUser.email ?? "Google 用户"}
+          </Text>
+        ) : (
+          <Text style={styles.text}>登录 Google 后，学习进度会同步到 Firebase Firestore。</Text>
+        )}
+        <Text style={[styles.statusText, cloudSyncStatus === "error" ? styles.errorText : undefined]}>
+          {cloudSyncMessage}
+        </Text>
+        <View style={styles.actionRow}>
+          {cloudUser ? (
+            <>
+              <AppButton
+                disabled={cloudSyncStatus === "syncing"}
+                label={cloudSyncStatus === "syncing" ? "同步中" : "立即同步"}
+                onPress={() => {
+                  void syncProgressNow();
+                }}
+              />
+              <AppButton
+                label="退出 Google"
+                onPress={() => {
+                  void signOutOfCloud();
+                }}
+                variant="secondary"
+              />
+            </>
+          ) : (
+            <AppButton
+              disabled={!isCloudSyncReady || cloudSyncStatus === "loading"}
+              label={cloudSyncStatus === "loading" ? "登录中" : "使用 Google 登录"}
+              onPress={() => {
+                void signInToCloud();
+              }}
+            />
+          )}
+        </View>
+      </View>
+
+      <View style={styles.card}>
         <Text style={styles.cardTitle}>进度备份</Text>
-        <Text style={styles.text}>导出的 JSON 只包含本设备/浏览器里的学习进度。</Text>
+        <Text style={styles.text}>导出的 JSON 包含当前浏览器里的学习进度，可作为手动备份。</Text>
         <View style={styles.actionRow}>
           <AppButton label="导出进度" onPress={handleExport} />
           <AppButton label="导入进度" onPress={handleImport} variant="secondary" />
@@ -82,7 +135,9 @@ export default function SettingsScreen() {
 
       <View style={styles.card}>
         <Text style={styles.cardTitle}>数据与隐私</Text>
-        <Text style={styles.text}>所有学习进度仅保存在本设备/浏览器，本应用不上传数据。</Text>
+        <Text style={styles.text}>
+          未登录时进度仅保存在本设备/浏览器；登录 Google 后，进度会保存到你的 Firebase 用户数据下。
+        </Text>
         <Text style={styles.text}>当前词库为 MVP 示例数据，完整词库上线前需要补充来源和授权信息。</Text>
         <AppButton label="数据来源 / 授权说明" onPress={() => router.push("/sources")} variant="secondary" />
       </View>
@@ -132,5 +187,14 @@ const styles = StyleSheet.create({
     color: colors.secondary,
     fontSize: 14,
     fontWeight: "800"
+  },
+  statusText: {
+    color: colors.secondary,
+    fontSize: 14,
+    fontWeight: "800",
+    lineHeight: 20
+  },
+  errorText: {
+    color: colors.red
   }
 });
