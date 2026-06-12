@@ -1,0 +1,16 @@
+{
+  "expo": {
+    "name": "西语词库",
+    "slug": "spanish-vocab-list",
+    "version": "0.1.0",
+    "orientation": "portrait",
+    "scheme": "spanish-vocab-list",
+    "userInterfaceStyle": "light",
+    "newArchEnabled": true,
+    "plugins": ["expo-router"],
+    "web": {
+      "bundler": "metro",
+      "output": "static"
+    }
+  }
+}

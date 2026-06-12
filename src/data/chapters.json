@@ -1,0 +1,20 @@
+[
+  {
+    "id": "chapter-basic",
+    "title": "基础高频词",
+    "description": "最常见的动词、名词和日常表达，适合快速建立阅读基础。",
+    "order": 1
+  },
+  {
+    "id": "chapter-life",
+    "title": "人物与生活",
+    "description": "围绕家庭、人物、情绪和描述性词汇建立生活场景表达。",
+    "order": 2
+  },
+  {
+    "id": "chapter-food-travel",
+    "title": "食物与出行",
+    "description": "覆盖餐饮、城市、交通和旅行中常见的核心词汇。",
+    "order": 3
+  }
+]

@@ -1,0 +1,44 @@
+[
+  {
+    "id": "section-basic-verbs",
+    "chapterId": "chapter-basic",
+    "title": "基础动词",
+    "description": "高频动作和状态动词。",
+    "order": 1
+  },
+  {
+    "id": "section-common-nouns",
+    "chapterId": "chapter-basic",
+    "title": "常用名词",
+    "description": "日常交流中常见的人、物、地点和时间词。",
+    "order": 2
+  },
+  {
+    "id": "section-family-people",
+    "chapterId": "chapter-life",
+    "title": "家庭与人物",
+    "description": "称呼、关系和人物相关词汇。",
+    "order": 1
+  },
+  {
+    "id": "section-emotions-description",
+    "chapterId": "chapter-life",
+    "title": "情绪与描述",
+    "description": "表达感受和描述事物的常用词。",
+    "order": 2
+  },
+  {
+    "id": "section-food-dining",
+    "chapterId": "chapter-food-travel",
+    "title": "食物餐饮",
+    "description": "食物、饮品和点餐场景词汇。",
+    "order": 1
+  },
+  {
+    "id": "section-city-transport",
+    "chapterId": "chapter-food-travel",
+    "title": "城市出行",
+    "description": "城市地点、交通工具和旅行动作。",
+    "order": 2
+  }
+]

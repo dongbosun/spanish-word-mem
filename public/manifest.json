@@ -1,0 +1,10 @@
+{
+  "name": "西语词库",
+  "short_name": "西语词库",
+  "description": "列表优先的西班牙语-英语词汇记忆应用",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f8fafc",
+  "theme_color": "#e64626",
+  "lang": "zh-CN"
+}
